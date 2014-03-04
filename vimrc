@@ -32,11 +32,12 @@ set ignorecase          " make search case-insensitive
 set autoindent
 set smartindent
 
+" prettify JSON files
+autocmd BufRead,BufNewFile *.json set filetype=json
+autocmd Syntax json sou ~/.vim/syntax/json.vim
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
+autocmd BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
 " format xml
 map <F5> :%s/<\([^>]\)*>/\r&\r/g<enter>:g/^\s*$/d<enter>vat=
 
-au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
